@@ -1,29 +1,31 @@
-@charset "UTF-8";
 @font-face {
   font-family: "Lato";
   font-style: normal;
   font-weight: 300;
   src: local("Lato Light"), local("Lato-Light"), url("./assets/fonts/Lato/lato-v16-latin-300.woff") format("woff"), url("./assets/fonts/Lato/lato-v16-latin-300.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;
   src: local("Lato Regular"), local("Lato-Regular"), url("./assets/fonts/Lato/lato-v16-latin-regular.woff") format("woff"), url("./assets/fonts/Lato/lato-v16-latin-regular.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "Lato";
   font-style: normal;
   font-weight: 700;
   src: local("Lato Bold"), local("Lato-Bold"), url("./assets/fonts/Lato/lato-v16-latin-700.woff") format("woff"), url("./assets/fonts/Lato/lato-v16-latin-700.ttf") format("truetype");
 }
-/* lato-900 - latin */
+
 @font-face {
   font-family: "Lato";
   font-style: normal;
   font-weight: 900;
   src: local("Lato Black"), local("Lato-Black"), url("./assets/fonts/Lato/lato-v16-latin-900.woff") format("woff"), url("./assets/fonts/Lato/lato-v16-latin-900.ttf") format("truetype");
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -39,8 +41,13 @@ a {
 
 body {
   font-family: "Lato", Arial, sans-serif;
-  font-weight: 400;
   font-size: 12px;
+  font-weight: 400;
+}
+
+.wrapper {
+  width: 1020px;
+  margin: 0 auto;
 }
 
 .container {
@@ -98,6 +105,7 @@ body {
 .navigation__item {
   margin: 0 13px;
 }
+
 .navigation__item:not(:first-child)::before {
   content: "·";
   position: relative;
@@ -127,6 +135,7 @@ body {
   border-radius: 50%;
   outline: none;
 }
+
 .slider__button:hover {
   cursor: pointer;
   background-color: #ffffff52;
@@ -139,6 +148,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .slider__button-left:active {
   left: 1px;
 }
@@ -150,6 +160,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .slider__button-right:active {
   right: 0;
 }
@@ -198,11 +209,95 @@ body {
 .iphone-horizontal-display {
   position: absolute;
   left: 447px;
-  top: 186px;
+  top: 185px;
   z-index: 3;
   width: 336px;
-  height: 191px;
+  height: 192px;
   background-image: url(./assets/images/iPhone-horizontal-display.png);
 }
 
-/*# sourceMappingURL=singolo1.css.map */
+.services {
+  padding: 59px 0 62px;
+  background-color: #f2f2f2;
+}
+
+.services__heading {
+  margin-bottom: 18px;
+  padding-left: 5px;
+  font-size: 30px;
+  font-weight: 900;
+  color: #666d89;
+}
+
+.services__annotation {
+  margin-bottom: 43px;
+  padding: 0 5px;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 300;
+  text-align: justify;
+  color: #767e9e;
+}
+
+.service {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: minmax(50px, 93px);
+  grid-column-gap: 21px;
+  grid-row-gap: 30px;
+  padding: 0 6px;
+}
+
+.service__item {
+  padding-left: 79px;
+  overflow: hidden;
+}
+
+.service__heading {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 900;
+  color: #666d89;
+}
+
+.service__info {
+  line-height: 21.56px;
+  text-align: justify;
+  color: #767e9e;
+}
+
+.service__item-pen {
+  background-image: url(./assets/images/services-pen.png);
+  background-repeat: no-repeat;
+  background-position: 0 4px;
+}
+
+.service__item-bulb {
+  background-image: url(./assets/images/services-bulb.png);
+  background-repeat: no-repeat;
+  background-position: 0 4px;
+}
+
+.service__item-heart {
+  background-image: url(./assets/images/services-heart.png);
+  background-repeat: no-repeat;
+  background-position: 0 4px;
+}
+
+.service__item-phone {
+  background-image: url(./assets/images/services-phone.png);
+  background-repeat: no-repeat;
+  background-position: 0 4px;
+}
+
+.service__item-bubble {
+  background-image: url(./assets/images/services-bubble.png);
+  background-repeat: no-repeat;
+  background-position: 0 4px;
+}
+
+.service__item-star {
+  background-image: url(./assets/images/services-star.png);
+  background-repeat: no-repeat;
+  background-position: 0 4px;
+}
