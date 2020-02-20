@@ -119,33 +119,39 @@ body {
 }
 
 .slider__button {
-  width: 27px;
+  position: absolute;
+  width: 33px;
+  height: 33px;
   background-color: transparent;
   border: none;
+  border-radius: 50%;
   outline: none;
 }
 .slider__button:hover {
   cursor: pointer;
+  background-color: #ffffff52;
 }
 
 .slider__button-left {
+  left: -2px;
+  top: 278px;
   background-image: url(./assets/images/left-arrow.png);
-  background-position: center 281px;
+  background-position: center;
   background-repeat: no-repeat;
 }
 .slider__button-left:active {
-  position: relative;
-  left: 2px;
+  left: 1px;
 }
 
 .slider__button-right {
+  right: -3px;
+  top: 278px;
   background-image: url(./assets/images/right-arrow.png);
-  background-position: center 281px;
+  background-position: center;
   background-repeat: no-repeat;
 }
 .slider__button-right:active {
-  position: relative;
-  right: 2px;
+  right: 0;
 }
 
 .iphone-vertical {
