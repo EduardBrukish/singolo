@@ -4,25 +4,28 @@
   font-weight: 300;
   src: local("Lato Light"), local("Lato-Light"), url("./assets/fonts/Lato/lato-v16-latin-300.woff") format("woff"), url("./assets/fonts/Lato/lato-v16-latin-300.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;
   src: local("Lato Regular"), local("Lato-Regular"), url("./assets/fonts/Lato/lato-v16-latin-regular.woff") format("woff"), url("./assets/fonts/Lato/lato-v16-latin-regular.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "Lato";
   font-style: normal;
   font-weight: 700;
   src: local("Lato Bold"), local("Lato-Bold"), url("./assets/fonts/Lato/lato-v16-latin-700.woff") format("woff"), url("./assets/fonts/Lato/lato-v16-latin-700.ttf") format("truetype");
 }
-/* lato-900 - latin */
+
 @font-face {
   font-family: "Lato";
   font-style: normal;
   font-weight: 900;
   src: local("Lato Black"), local("Lato-Black"), url("./assets/fonts/Lato/lato-v16-latin-900.woff") format("woff"), url("./assets/fonts/Lato/lato-v16-latin-900.ttf") format("truetype");
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -51,7 +54,8 @@ body {
   max-width: 980px;
   margin: 0 auto;
   padding: 0 15px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .portfolio {
@@ -78,6 +82,8 @@ body {
 }
 
 .work-examples__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-bottom: 12px;
   padding-left: 6px;
@@ -91,6 +97,7 @@ body {
   border-radius: 4px;
   color: #767e9e;
 }
+
 .work-examples__menu-item:hover {
   cursor: pointer;
   border-color: #c5c5c5;
@@ -212,9 +219,14 @@ body {
 }
 
 .team {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .team-member__photo {
@@ -238,6 +250,8 @@ body {
 }
 
 .team-member__social {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-bottom: 30px;
 }
@@ -250,7 +264,9 @@ body {
   border-radius: 50%;
 }
 .team-member__social-item:hover {
-  box-shadow: 0 0 1px 1px #69708b;
+  -webkit-box-shadow: 0 0 1px 1px #69708b;
+          box-shadow: 0 0 1px 1px #69708b;
+  -webkit-transition: 0.1s ease-out;
   transition: 0.1s ease-out;
 }
 
@@ -287,5 +303,3 @@ body {
   background-position: center;
   background-size: 49%;
 }
-
-/*# sourceMappingURL=singolo2.css.map */
