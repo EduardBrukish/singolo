@@ -3,26 +3,29 @@
   font-style: normal;
   font-weight: 300;
   src: local("Lato Light"), local("Lato-Light"), url("./assets/fonts/Lato/lato-v16-latin-300.woff") format("woff"), url("./assets/fonts/Lato/lato-v16-latin-300.ttf") format("truetype");
-}
+} 
+
 @font-face {
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;
   src: local("Lato Regular"), local("Lato-Regular"), url("./assets/fonts/Lato/lato-v16-latin-regular.woff") format("woff"), url("./assets/fonts/Lato/lato-v16-latin-regular.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "Lato";
   font-style: normal;
   font-weight: 700;
   src: local("Lato Bold"), local("Lato-Bold"), url("./assets/fonts/Lato/lato-v16-latin-700.woff") format("woff"), url("./assets/fonts/Lato/lato-v16-latin-700.ttf") format("truetype");
 }
-/* lato-900 - latin */
+
 @font-face {
   font-family: "Lato";
   font-style: normal;
   font-weight: 900;
   src: local("Lato Black"), local("Lato-Black"), url("./assets/fonts/Lato/lato-v16-latin-900.woff") format("woff"), url("./assets/fonts/Lato/lato-v16-latin-900.ttf") format("truetype");
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -52,11 +55,13 @@ body {
   background-color: #f06c64;
   border-bottom: 6px solid #ea676b;
 }
+
 .info .container {
   max-width: 970px;
   margin: 0 auto;
   padding: 0 15px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .info__heading {
@@ -76,8 +81,12 @@ body {
 }
 
 .info__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .form {
@@ -90,7 +99,8 @@ body {
   width: 100%;
   margin-bottom: 16px;
   padding: 8px 15px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: "Lato";
   font-size: 12px;
   line-height: 22px;
@@ -101,6 +111,19 @@ body {
   outline: none;
   color: #ffffff;
 }
+
+#name::-webkit-input-placeholder, #email::-webkit-input-placeholder, #subject::-webkit-input-placeholder, #description::-webkit-input-placeholder {
+  color: #f48c8f;
+}
+
+#name:-ms-input-placeholder, #email:-ms-input-placeholder, #subject:-ms-input-placeholder, #description:-ms-input-placeholder {
+  color: #f48c8f;
+}
+
+#name::-ms-input-placeholder, #email::-ms-input-placeholder, #subject::-ms-input-placeholder, #description::-ms-input-placeholder {
+  color: #f48c8f;
+}
+
 #name::placeholder, #email::placeholder, #subject::placeholder, #description::placeholder {
   color: #f48c8f;
 }
@@ -117,7 +140,8 @@ body {
 #submit {
   width: 40%;
   padding: 5px 15px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: "Lato";
   font-size: 18px;
   line-height: 22px;
@@ -152,8 +176,13 @@ body {
 }
 
 .information-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .information-links__item {
@@ -189,14 +218,21 @@ body {
   background-color: #2d303a;
 }
 .footer .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
   max-width: 970px;
   margin: 0 auto;
   padding: 0 15px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .copyright {
@@ -205,6 +241,8 @@ body {
 }
 
 .footer__social {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -216,7 +254,9 @@ body {
   border-radius: 50%;
 }
 .footer__social-item:hover {
-  box-shadow: 0 0 1px 1px #656c87;
+  -webkit-box-shadow: 0 0 1px 1px #656c87;
+          box-shadow: 0 0 1px 1px #656c87;
+  -webkit-transition: 0.1s ease-out;
   transition: 0.1s ease-out;
 }
 
@@ -249,5 +289,3 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
-
-/*# sourceMappingURL=singolo3.css.map */
