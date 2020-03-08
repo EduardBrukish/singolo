@@ -1,1 +1,1 @@
-**[Singolo](https://eduardbrukish.github.io/singolo/)**
+##Singolo full: [Singolo](https://eduardbrukish.github.io/singolo/)
