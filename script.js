@@ -4,6 +4,7 @@ const portfolioExamples = document.querySelector('.work-examples__images');
 
 navigation.addEventListener('click', activateMenuItem);
 portfolioMenu.addEventListener('click', sortPortfolioExamples);
+portfolioExamples.addEventListener('click', activePortfolioExample);
 
 function activateMenuItem(event) {
     event.preventDefault();
@@ -29,4 +30,10 @@ function sortPortfolioExamples(event) {
             item.style.order = Math.round(Math.random() * 12);
         }
         );
+}
+
+function activePortfolioExample(event) {
+    if (event.target === null) return;
+    portfolioExamples.querySelectorAll('.work-examples__image').forEach(element => element.classList.remove('work-examples__image_active'));
+    event.target.classList.add('work-examples__image_active');
 }

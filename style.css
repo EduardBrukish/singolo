@@ -306,7 +306,7 @@ body {
 }
 
 .portfolio {
-  padding: 60px 0 61px;
+  padding: 60px 0 59px;
   background-color: #2d303a;
   border-bottom: 6px solid #323746;
 }
@@ -330,7 +330,7 @@ body {
 
 .work-examples__menu {
   display: flex;
-  margin-bottom: 11px;
+  margin-bottom: 13px;
   padding-left: 6px;
 }
 
@@ -362,76 +362,16 @@ body {
   max-height: 614px;
 }
 
-.work-examples__images-item_example-1 {
-  background-image: url(./assets/images/portfolio/example-1.png);
-  background-repeat: no-repeat;
-  background-position: center;
+.work-examples__images-item {
+  cursor: pointer;
 }
 
-.work-examples__images-item_example-2 {
-  background-image: url(./assets/images/portfolio/example-2.png);
-  background-repeat: no-repeat;
-  background-position: center;
+.work-examples__image {
+  border: 5px solid transparent;
 }
 
-.work-examples__images-item_example-3 {
-  background-image: url(./assets/images/portfolio/example-3.png);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.work-examples__images-item_example-4 {
-  background-image: url(./assets/images/portfolio/example-4.png);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.work-examples__images-item_example-5 {
-  background-image: url(./assets/images/portfolio/example-5.png);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.work-examples__images-item_example-6 {
-  background-image: url(./assets/images/portfolio/example-6.png);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.work-examples__images-item_example-7 {
-  background-image: url(./assets/images/portfolio/example-7.png);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.work-examples__images-item_example-8 {
-  background-image: url(./assets/images/portfolio/example-8.png);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.work-examples__images-item_example-9 {
-  background-image: url(./assets/images/portfolio/example-9.png);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.work-examples__images-item_example-10 {
-  background-image: url(./assets/images/portfolio/example-10.png);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.work-examples__images-item_example-11 {
-  background-image: url(./assets/images/portfolio/example-11.png);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.work-examples__images-item_example-12 {
-  background-image: url(./assets/images/portfolio/example-12.png);
-  background-repeat: no-repeat;
-  background-position: center;
+.work-examples__image_active {
+  border: 5px solid #F06C64;
 }
 
 .about {
