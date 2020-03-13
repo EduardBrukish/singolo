@@ -1,10 +1,16 @@
 const navigation = document.querySelector('.navigation');
 const portfolioMenu = document.querySelector('.work-examples__menu');
 const portfolioExamples = document.querySelector('.work-examples__images');
+const iphoneVertical = document.querySelector('.iphone-vertical__wrapper');
+const iphoneVerticalDisplay = document.querySelector('.iphone-vertical-display');
+const iphoneHorizontal = document.querySelector('.iphone-horizontal__wrapper');
+const iphoneHorizontalDisplay = document.querySelector('.iphone-horizontal-display');
 
 navigation.addEventListener('click', activateMenuItem);
 portfolioMenu.addEventListener('click', sortPortfolioExamples);
 portfolioExamples.addEventListener('click', activePortfolioExample);
+iphoneVertical.addEventListener('click', activateIphoneVertical);
+iphoneHorizontal.addEventListener('click', activateIphoneHorizontal);
 
 function activateMenuItem(event) {
     event.preventDefault();
@@ -19,6 +25,14 @@ function activateMenuItem(event) {
         block: 'start'
     });
 };
+
+function activateIphoneVertical() {
+    iphoneVerticalDisplay.classList.toggle('active-iphone-display');
+}
+
+function activateIphoneHorizontal() {
+    iphoneHorizontalDisplay.classList.toggle('active-iphone-display');
+}
 
 function sortPortfolioExamples(event) {
     if (event.target === null || event.target.classList.contains('work-examples__menu-item_active')) return;

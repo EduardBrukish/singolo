@@ -163,11 +163,26 @@ body {
   right: 0;
 }
 
+.active-iphone-display {
+  display: none;
+}
+
 .iphone-vertical {
   position: absolute;
   left: 77px;
   top: 53px;
   z-index: 2;
+}
+
+.iphone-vertical__wrapper {
+  position: absolute;
+  left: 77px;
+  top: 53px;
+  z-index: 4;
+  width: 215px;
+  height: 458px;
+  border-radius: 15px;
+  cursor: pointer;
 }
 
 .shadow-vertical {
@@ -194,6 +209,16 @@ body {
   top: 53px;
   z-index: 2;
   transform: rotate(90deg);
+}
+
+.iphone-horizontal__wrapper {
+  position: absolute;
+  left: 390px;
+  top: 175px;
+  z-index: 4;
+  width: 457px;
+  height: 215px;
+  cursor: pointer;
 }
 
 .shadow-horizontal {
