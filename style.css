@@ -245,6 +245,7 @@ body {
   height: 458px;
   border-radius: 15px;
   cursor: pointer;
+  user-select: none;
 }
 
 .shadow-vertical {
@@ -281,6 +282,7 @@ body {
   width: 457px;
   height: 215px;
   cursor: pointer;
+  user-select: none;
 }
 
 .shadow-horizontal {
@@ -299,6 +301,13 @@ body {
   width: 336px;
   height: 192px;
   background-image: url(./assets/images/promo/iPhone-horizontal-display.png);
+}
+
+.iphones {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .services {
