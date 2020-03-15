@@ -51,3 +51,56 @@ function activePortfolioExample(event) {
     portfolioExamples.querySelectorAll('.work-examples__image').forEach(element => element.classList.remove('work-examples__image_active'));
     event.target.classList.add('work-examples__image_active');
 }
+
+
+const rightSliderBtn = document.querySelector('.slider__button-right');
+const leftSliderBtn = document.querySelector('.slider__button-left');
+const slides = document.querySelectorAll('.slide__item');
+let currentSlide = 0;
+let isEnabled = true;
+
+rightSliderBtn.addEventListener('click', moveSlideRight);
+leftSliderBtn.addEventListener('click', moveSlideLeft);
+
+function changeCurrentSlide(n) {
+    currentSlide = (n + slides.length) % slides.length;
+};
+
+function moveSlideRight() {
+    if (isEnabled) previousSlide(currentSlide);
+};
+
+function moveSlideLeft() {
+    if (isEnabled) nextSlide(currentSlide);
+};
+
+function hideSlide(direction) {
+    slides[currentSlide].classList.add(direction);
+    slides[currentSlide].addEventListener('animationend', function () {
+        this.classList.remove('active-slide', direction);
+    });
+}
+
+
+function showSlide(direction) {
+    slides[currentSlide].classList.add('next-slide', direction);
+    slides[currentSlide].addEventListener('animationend', function () {
+        this.classList.remove('next-slide', direction);
+        this.classList.add('active-slide');
+        isEnabled = true;
+    });
+}
+
+function nextSlide(n) {
+    isEnabled = false;
+    hideSlide('to-left');
+    changeCurrentSlide(n + 1);
+    showSlide('from-right');
+};
+
+function previousSlide(n) {
+    isEnabled = false;
+    hideSlide('to-right');
+    changeCurrentSlide(n - 1);
+    showSlide('from-left');
+};
