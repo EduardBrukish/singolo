@@ -5,16 +5,23 @@ const iphoneVertical = document.querySelector('.iphone-vertical__wrapper');
 const iphoneVerticalDisplay = document.querySelector('.iphone-vertical-display');
 const iphoneHorizontal = document.querySelector('.iphone-horizontal__wrapper');
 const iphoneHorizontalDisplay = document.querySelector('.iphone-horizontal-display');
+const rightSliderBtn = document.querySelector('.slider__button-right');
+const leftSliderBtn = document.querySelector('.slider__button-left');
+const slides = document.querySelectorAll('.slide__item');
+let currentSlide = 0;
+let isEnabled = true;
 
 navigation.addEventListener('click', activateMenuItem);
 portfolioMenu.addEventListener('click', sortPortfolioExamples);
 portfolioExamples.addEventListener('click', activePortfolioExample);
 iphoneVertical.addEventListener('click', activateIphoneVertical);
 iphoneHorizontal.addEventListener('click', activateIphoneHorizontal);
+rightSliderBtn.addEventListener('click', moveSlideRight);
+leftSliderBtn.addEventListener('click', moveSlideLeft);
 
 function activateMenuItem(event) {
     event.preventDefault();
-    if (event.target === null) return;
+    if (!event.target.classList.contains('navigation__link')) return;
     navigation.querySelectorAll('.navigation__link').forEach(element => element.classList.remove('navigation__link_active'));
     event.target.classList.add('navigation__link_active');
 
@@ -24,6 +31,7 @@ function activateMenuItem(event) {
         behavior: 'smooth',
         block: 'start'
     });
+    document.getElementById(anchorId).scrollTop -= 100;
 };
 
 function activateIphoneVertical() {
@@ -35,10 +43,11 @@ function activateIphoneHorizontal() {
 }
 
 function sortPortfolioExamples(event) {
-    if (event.target === null || event.target.classList.contains('work-examples__menu-item_active')) return;
+    if (event.target.classList.contains('work-examples__menu-item_active')) return;
 
     portfolioMenu.querySelectorAll('.work-examples__menu-item').forEach(element => element.classList.remove('work-examples__menu-item_active'));
     event.target.classList.add('work-examples__menu-item_active');
+
     portfolioExamples.querySelectorAll('.work-examples__images-item')
         .forEach(item => {
             item.style.order = Math.round(Math.random() * 12);
@@ -53,14 +62,6 @@ function activePortfolioExample(event) {
 }
 
 
-const rightSliderBtn = document.querySelector('.slider__button-right');
-const leftSliderBtn = document.querySelector('.slider__button-left');
-const slides = document.querySelectorAll('.slide__item');
-let currentSlide = 0;
-let isEnabled = true;
-
-rightSliderBtn.addEventListener('click', moveSlideRight);
-leftSliderBtn.addEventListener('click', moveSlideLeft);
 
 function changeCurrentSlide(n) {
     currentSlide = (n + slides.length) % slides.length;
