@@ -8,6 +8,12 @@ const iphoneHorizontalDisplay = document.querySelector('.iphone-horizontal-displ
 const rightSliderBtn = document.querySelector('.slider__button-right');
 const leftSliderBtn = document.querySelector('.slider__button-left');
 const slides = document.querySelectorAll('.slide__item');
+const submitBtn = document.getElementById('submit');
+const form = document.querySelector('.form');
+const userName = document.getElementById('name');
+const userEmail = document.getElementById('email');
+const subject = document.getElementById('subject');
+const description = document.getElementById('description');
 let currentSlide = 0;
 let isEnabled = true;
 
@@ -18,6 +24,7 @@ iphoneVertical.addEventListener('click', activateIphoneVertical);
 iphoneHorizontal.addEventListener('click', activateIphoneHorizontal);
 rightSliderBtn.addEventListener('click', moveSlideRight);
 leftSliderBtn.addEventListener('click', moveSlideLeft);
+submitBtn.addEventListener('click', submitForm);
 
 function activateMenuItem(event) {
     event.preventDefault();
@@ -105,3 +112,38 @@ function previousSlide(n) {
     changeCurrentSlide(n - 1);
     showSlide('from-left');
 };
+
+
+
+function submitForm(event) {
+    if (!userName.validity.valid || !userEmail.validity.valid) { return }
+
+    event.preventDefault();
+
+    formSubmitWindow();
+}
+
+function formSubmitWindow() {
+    let submitWindow = document.createElement('div');
+    let message = document.createElement('p');
+    let confirmBtn = document.createElement('button');
+    let submitSubject = subject.value;
+    let descriptionSubject = description.value;
+
+    form.append(submitWindow);
+    submitWindow.classList.add('submit-window');
+
+    confirmBtn.innerText = 'Ok';
+    confirmBtn.classList.add('submit-confirm-button');
+
+    submitWindow.append(message, confirmBtn);
+    confirmBtn.addEventListener('click', function () { submitWindow.remove() });
+
+    message.classList.add('submit-message');
+
+    if (!submitSubject) { submitSubject = 'Without subject' };
+    if (!descriptionSubject) { descriptionSubject = 'Without description' };
+    message.innerText = `The letter was sent  
+    Subject: ${submitSubject}  
+    Description: ${descriptionSubject}`;
+}
