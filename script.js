@@ -17,7 +17,7 @@ const description = document.getElementById('description');
 let currentSlide = 0;
 let isEnabled = true;
 
-navigation.addEventListener('click', activateMenuItem);
+document.addEventListener('scroll', scrollActivateMenuItem)
 portfolioMenu.addEventListener('click', sortPortfolioExamples);
 portfolioExamples.addEventListener('click', activePortfolioExample);
 iphoneVertical.addEventListener('click', activateIphoneVertical);
@@ -26,20 +26,22 @@ rightSliderBtn.addEventListener('click', moveSlideRight);
 leftSliderBtn.addEventListener('click', moveSlideLeft);
 submitBtn.addEventListener('click', submitForm);
 
-function activateMenuItem(event) {
-    event.preventDefault();
-    if (!event.target.classList.contains('navigation__link')) return;
-    navigation.querySelectorAll('.navigation__link').forEach(element => element.classList.remove('navigation__link_active'));
-    event.target.classList.add('navigation__link_active');
+function scrollActivateMenuItem(event) {
+    const currentPosition = window.scrollY;
+    const links = navigation.querySelectorAll('.navigation__link')
 
-    let anchorId = event.target.getAttribute('href').slice(1);
+    document.querySelectorAll('.main>section').forEach(section => {
 
-    document.getElementById(anchorId).scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-    });
-    document.getElementById(anchorId).scrollTop -= 100;
-};
+        if (currentPosition >= section.offsetTop && currentPosition < (section.offsetTop + section.offsetHeight)) {
+            links.forEach(link => {
+                link.classList.remove('navigation__link_active');
+                if (link.getAttribute('href').slice(1) === section.getAttribute('id')) {
+                    link.classList.add('navigation__link_active');
+                }
+            })
+        }
+    })
+}
 
 function activateIphoneVertical() {
     iphoneVerticalDisplay.classList.toggle('active-iphone-display');
@@ -137,7 +139,10 @@ function formSubmitWindow() {
     confirmBtn.classList.add('submit-confirm-button');
 
     submitWindow.append(message, confirmBtn);
-    confirmBtn.addEventListener('click', function () { submitWindow.remove() });
+    confirmBtn.addEventListener('click', function () {
+        form.reset();
+        submitWindow.remove();
+    });
 
     message.classList.add('submit-message');
 
