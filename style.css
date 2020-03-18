@@ -37,14 +37,16 @@ a {
   text-decoration: none;
 }
 
-body {
+html, body {
   font-family: "Lato", Arial, sans-serif;
   font-size: 12px;
   font-weight: 400;
+  scroll-behavior: smooth;
 }
 
 .wrapper {
-  width: 1020px;
+  max-width: 1020px;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -326,8 +328,6 @@ body {
 
 .services__annotation {
   margin-bottom: 43px;
-  max-height: 60px;
-  overflow: hidden;
   padding: 0 5px;
   font-size: 18px;
   line-height: 30px;
@@ -401,6 +401,56 @@ body {
   background-position: 0 4px;
 }
 
+@media (max-width: 768px) {
+  .container {
+    max-width: 728px;
+  }
+
+  .slider {
+    height: 446px;
+  }
+
+  .iphone-vertical, .iphone-vertical__wrapper {
+    width: 162px;
+    left: 84px;
+    top: 41px;
+  }
+
+  .iphone-vertical__wrapper {
+    height: 344px;
+  }
+
+  .iphone-vertical-display {
+    left: 95px;
+    top: 90px;
+    width: 142px;
+    height: 251px;
+    background-size: 300%;
+  }
+
+  .shadow-vertical {
+    width: 183px;
+    left: 84px;
+    top: 41px;
+  }
+
+  .services {
+    padding: 45px 0 69px;
+  }
+
+  .services__annotation {
+    margin-bottom: 33px;
+  }
+
+  .service {
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 52px;
+  }
+
+  .service__info {
+    max-width: 220px;
+  }
+}
 .portfolio {
   padding: 60px 0 59px;
   background-color: #2d303a;
@@ -452,10 +502,9 @@ body {
 .work-examples__images {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 200px);
+  grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 7px;
-  max-height: 614px;
 }
 
 .work-examples__images-item {
@@ -463,6 +512,8 @@ body {
 }
 
 .work-examples__image {
+  width: 100%;
+  box-sizing: border-box;
   border: 5px solid transparent;
 }
 
@@ -502,6 +553,10 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.team-member {
+  flex: 1 1 33%;
 }
 
 .team-member__photo {
@@ -578,6 +633,15 @@ body {
   background-size: 49%;
 }
 
+@media (max-width: 768px) {
+  .work-examples__menu {
+    margin-bottom: 23px;
+  }
+
+  .work-examples__images {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 .info {
   padding: 59px 0 16px;
   background-color: #f06c64;
