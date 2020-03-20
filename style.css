@@ -556,15 +556,16 @@ html, body {
 }
 
 .team-member {
-  flex: 1 1 33%;
+  max-width: 300px;
+  width: calc(96%/3);
 }
 
 .team-member__photo {
+  width: 100%;
   margin-bottom: 12px;
 }
 
 .team-member__name {
-  max-width: 300px;
   margin-bottom: 8px;
   font-size: 18px;
   font-weight: 900;
@@ -576,7 +577,6 @@ html, body {
 
 .team-member__about {
   margin-bottom: 24px;
-  max-width: 300px;
   line-height: 21.56px;
   text-align: justify;
   color: #767e9e;
@@ -641,6 +641,26 @@ html, body {
   .work-examples__images {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .about {
+    padding: 52px 0 39px;
+  }
+
+  .about__info {
+    margin-bottom: 38px;
+  }
+
+  .team-member__photo {
+    margin-bottom: 6px;
+  }
+
+  .team-member__name {
+    margin-bottom: 0;
+  }
+
+  .team-member__about {
+    margin-bottom: 13px;
+  }
 }
 .info {
   padding: 59px 0 16px;
@@ -676,7 +696,7 @@ html, body {
 }
 
 .form {
-  max-width: 619px;
+  max-width: 66%;
   width: 100%;
   text-align: center;
 }
@@ -772,7 +792,7 @@ html, body {
 }
 
 .contact-information {
-  max-width: 300px;
+  max-width: 32%;
 }
 
 .contact-information__heading {
@@ -887,6 +907,39 @@ html, body {
   background-image: url(./assets/images/footer/linkedin-ico.png);
   background-repeat: no-repeat;
   background-position: center;
+}
+
+@media (max-width: 768px) {
+  .info {
+    padding: 53px 0 16px;
+  }
+  .info .container {
+    max-width: 715px;
+  }
+
+  .info__anotation {
+    margin-bottom: 25px;
+  }
+
+  .form {
+    max-width: 64%;
+  }
+
+  #name, #email, #subject, #description {
+    margin-bottom: 12px;
+  }
+
+  #description {
+    height: 159px;
+  }
+
+  .contact-information__heading {
+    margin-bottom: 3px;
+  }
+
+  .contact-information__annotation {
+    margin-bottom: 13px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
