@@ -1,9 +1,9 @@
 const navigation = document.querySelector('.navigation');
 const portfolioMenu = document.querySelector('.work-examples__menu');
 const portfolioExamples = document.querySelector('.work-examples__images');
-const iphoneVertical = document.querySelector('.iphone-vertical__wrapper');
+const iphoneVertical = document.querySelector('.iphone-vertical');
 const iphoneVerticalDisplay = document.querySelector('.iphone-vertical-display');
-const iphoneHorizontal = document.querySelector('.iphone-horizontal__wrapper');
+const iphoneHorizontal = document.querySelector('.iphone-horizontal');
 const iphoneHorizontalDisplay = document.querySelector('.iphone-horizontal-display');
 const rightSliderBtn = document.querySelector('.slider__button-right');
 const leftSliderBtn = document.querySelector('.slider__button-left');
@@ -21,24 +21,35 @@ document.addEventListener('scroll', scrollActivateMenuItem)
 portfolioMenu.addEventListener('click', sortPortfolioExamples);
 portfolioExamples.addEventListener('click', activePortfolioExample);
 iphoneVertical.addEventListener('click', activateIphoneVertical);
+iphoneVerticalDisplay.addEventListener('click', activateIphoneVertical);
+iphoneHorizontalDisplay.addEventListener('click', activateIphoneHorizontal);
 iphoneHorizontal.addEventListener('click', activateIphoneHorizontal);
 rightSliderBtn.addEventListener('click', moveSlideRight);
 leftSliderBtn.addEventListener('click', moveSlideLeft);
 submitBtn.addEventListener('click', submitForm);
 
 function scrollActivateMenuItem(event) {
+    const header = document.querySelector('.header');
+    let headerHeight = +window.getComputedStyle(header, null).getPropertyValue('height').replace(/\D+/, '');
+
     const currentPosition = window.scrollY;
-    const links = navigation.querySelectorAll('.navigation__link')
+    const links = [...navigation.querySelectorAll('.navigation__link')];
+
 
     document.querySelectorAll('.main>section').forEach(section => {
 
-        if (currentPosition >= section.offsetTop && currentPosition < (section.offsetTop + section.offsetHeight)) {
+        if ((currentPosition + headerHeight) >= section.offsetTop && currentPosition < (section.offsetTop + section.offsetHeight)) {
             links.forEach(link => {
                 link.classList.remove('navigation__link_active');
                 if (link.getAttribute('href').slice(1) === section.getAttribute('id')) {
                     link.classList.add('navigation__link_active');
                 }
             })
+        }
+
+        if (currentPosition === document.documentElement.scrollHeight - document.documentElement.clientHeight) {
+            links.forEach(link => { link.classList.remove('navigation__link_active') });
+            links[links.length - 1].classList.add('navigation__link_active');
         }
     })
 }
@@ -57,11 +68,11 @@ function sortPortfolioExamples(event) {
     portfolioMenu.querySelectorAll('.work-examples__menu-item').forEach(element => element.classList.remove('work-examples__menu-item_active'));
     event.target.classList.add('work-examples__menu-item_active');
 
-    portfolioExamples.querySelectorAll('.work-examples__images-item')
-        .forEach(item => {
-            item.style.order = Math.round(Math.random() * 12);
-        }
-        );
+    const examples = [...portfolioExamples.querySelectorAll('.work-examples__images-item')];
+    examples.forEach(example => example.remove());
+    let examplesItem = examples.splice(0, 1);
+    examples.push(examplesItem[0]);
+    examples.forEach(example => portfolioExamples.append(example));
 }
 
 function activePortfolioExample(event) {
@@ -115,8 +126,6 @@ function previousSlide(n) {
     showSlide('from-left');
 };
 
-
-
 function submitForm(event) {
     if (!userName.validity.valid || !userEmail.validity.valid) { return }
 
@@ -151,4 +160,63 @@ function formSubmitWindow() {
     message.innerText = `The letter was sent  
     Subject: ${submitSubject}  
     Description: ${descriptionSubject}`;
+}
+
+const menuMobileBurger = document.querySelector('.menu-burger');
+const headerMenu = document.querySelector('.header__navigation');
+const body = document.querySelector('body');
+menuMobileBurger.addEventListener('click', activeMobileMenu);
+let flag = true;
+
+
+console.log(document.documentElement.scrollTop === body.scrollHeight - document.documentElement.clientHeight);
+
+function activeMobileMenu() {
+
+    activeMobileBurger();
+
+    if (flag) {
+        showMenu();
+        flag = false;
+    } else {
+        hideMenu();
+        flag = true;
+    }
+}
+
+function activeMobileBurger() {
+    menuMobileBurger.classList.add('flip');
+    menuMobileBurger.classList.remove('unflip')
+}
+
+function deactiveMobileBurger() {
+    menuMobileBurger.classList.add('unflip')
+    menuMobileBurger.classList.remove('flip');
+}
+
+function showMenu() {
+    navigation.querySelectorAll('.navigation__link').forEach(item => item.addEventListener('click', hideMenu));
+
+    headerMenu.classList.add('header__navigation-active');
+    headerMenu.classList.add('show-mobile-menu');
+
+    headerMenu.addEventListener('animationend', function () {
+        headerMenu.classList.remove('show-mobile-menu');
+        flag = false;
+    });
+}
+
+function hideMenu() {
+
+    deactiveMobileBurger()
+
+    navigation.querySelectorAll('.navigation__link').forEach(item => item.removeEventListener('click', hideMenu));
+
+    headerMenu.classList.add('menu-right');
+
+    headerMenu.addEventListener('animationend', function () {
+        headerMenu.classList.remove('header__navigation-active');
+        headerMenu.classList.remove('menu-right');
+        flag = true;
+    }, { once: true });
 }
