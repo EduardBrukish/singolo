@@ -14,7 +14,10 @@
             <div class="container">
                 <h1 class="heading"><a class="logo" href="#"><span class="logo logo_white-text">SINGOLO</span><span
                             class="logo logo_red-text">*</span></a></h1>
+                <img class="menu-burger" src="./assets/images/header/burger-menu.png" alt="menu button">
                 <nav class="header__navigation">
+                    <p class="navigation-logo"><span class="logo logo_white-text">SINGOLO</span><span
+                            class="logo logo_red-text">*</span></p>
                     <ul class="navigation">
                         <li class="navigation__item"><a class="navigation__link" href="#home">HOME</a></li>
                         <li class="navigation__item"><a class="navigation__link" href="#services">SERVICES</a></li>
@@ -33,16 +36,21 @@
                         <button class="slider__button slider__button-right"></button>
                     </div>
                     <div class="slide__item slide__item_first active-slide">
-                        <div class="iphone-vertical__wrapper"></div>
-                        <img class="iphone-vertical" src="./assets/images/promo/iPhone.png" alt="iPhone vertical">
-                        <div class="iphone-vertical-display"></div>
-                        <img class="shadow-vertical" src="./assets/images/promo/iphone-shadow.png"
-                            alt="shadow-vertical">
-                        <div class="iphone-horizontal__wrapper"></div>
-                        <img class="iphone-horizontal" src="./assets/images/promo/iPhone.png" alt="iPhone horizontal">
-                        <div class="iphone-horizontal-display"></div>
-                        <img class="shadow-horizontal" src="./assets/images/promo/iphone-shadow.png"
-                            alt="shadow-horizontal">
+                        <div class="iphone-vertical__images-wrapper">
+                            <img class="iphone-vertical" src="./assets/images/promo/iPhone.png" alt="iPhone vertical">
+                            <img class="iphone-vertical-display"
+                                src="./assets/images/promo/iPhone-vertical-display.png">
+                            <img class="shadow-vertical" src="./assets/images/promo/iphone-shadow.png"
+                                alt="shadow-vertical">
+                        </div>
+                        <div class="iphone-horizontal__images-wrapper">
+                            <img class="iphone-horizontal" src="./assets/images/promo/iPhone.png"
+                                alt="iPhone horizontal">
+                            <img class="iphone-horizontal-display"
+                                src="./assets/images/promo/iPhone-horizontal-display.png">
+                            <img class="shadow-horizontal" src="./assets/images/promo/iphone-shadow.png"
+                                alt="shadow-horizontal">
+                        </div>
                     </div>
                     <div class="slide__item slide__item_second">
                         <img class="iphones" src="./assets/images/promo/iPhones-second-slide.png" alt="iPhones">
@@ -274,7 +282,7 @@
                             <input id="subject" type="text" placeholder="Subject">
                             <textarea id="description" maxlength="900"
                                 placeholder="Describe your project in detail..."></textarea>
-                            <input id="submit" type="submit" value="Submit">
+                            <input id="submit" type="submit" value="SEND">
                         </form>
                         <div class="contact-information">
                             <h3 class="contact-information__heading">Contact Information</h3>
