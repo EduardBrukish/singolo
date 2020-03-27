@@ -14,6 +14,11 @@ const userName = document.getElementById('name');
 const userEmail = document.getElementById('email');
 const subject = document.getElementById('subject');
 const description = document.getElementById('description');
+const menuMobileBurger = document.querySelector('.menu-burger');
+const headerMenu = document.querySelector('.header__navigation');
+const body = document.querySelector('body');
+menuMobileBurger.addEventListener('click', activeMobileMenu);
+let flag = true;
 let currentSlide = 0;
 let isEnabled = true;
 
@@ -81,8 +86,6 @@ function activePortfolioExample(event) {
     event.target.classList.add('work-examples__image_active');
 }
 
-
-
 function changeCurrentSlide(n) {
     currentSlide = (n + slides.length) % slides.length;
 };
@@ -101,7 +104,6 @@ function hideSlide(direction) {
         this.classList.remove('active-slide', direction);
     });
 }
-
 
 function showSlide(direction) {
     slides[currentSlide].classList.add('next-slide', direction);
@@ -162,15 +164,6 @@ function formSubmitWindow() {
     Description: ${descriptionSubject}`;
 }
 
-const menuMobileBurger = document.querySelector('.menu-burger');
-const headerMenu = document.querySelector('.header__navigation');
-const body = document.querySelector('body');
-menuMobileBurger.addEventListener('click', activeMobileMenu);
-let flag = true;
-
-
-console.log(document.documentElement.scrollTop === body.scrollHeight - document.documentElement.clientHeight);
-
 function activeMobileMenu() {
 
     activeMobileBurger();
@@ -195,6 +188,7 @@ function deactiveMobileBurger() {
 }
 
 function showMenu() {
+    body.classList.add('body-overflow');
     navigation.querySelectorAll('.navigation__link').forEach(item => item.addEventListener('click', hideMenu));
 
     headerMenu.classList.add('header__navigation-active');
@@ -207,6 +201,7 @@ function showMenu() {
 }
 
 function hideMenu() {
+    body.classList.remove('body-overflow');
 
     deactiveMobileBurger()
 
